@@ -1,27 +1,18 @@
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import "./App.css";
-import Header from "./components/Header";
-import Home from "./components/Home";
-import Login from "./components/Login";
+import Login from "./pages/Login";
+import Home from "./pages/Home";
 
 function App() {
+  const [username, setUsername] = useState("");
+
   return (
-    <div className="App">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Login />} />
-          <Route 
-            path="/home" 
-            element={
-              <>
-                <Header />
-                <Home />
-              </>
-            } 
-          />
-        </Routes>
-      </Router>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Login setUsername={setUsername} />} />
+        <Route path="/home" element={<Home username={username} />} />
+      </Routes>
+    </Router>
   );
 }
 
