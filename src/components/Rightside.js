@@ -32,9 +32,10 @@ const Container = styled.div`
   grid-area: rightside;
   background-color: #fff;
   border-radius: 5px;
-  padding: 10px;
+  padding: 10px 10px 30px 20px;
   box-shadow: 0 0 0 1px rgb(0 0 0 / 15%), 0 0 0 rgb(0 0 0 / 20%);
-  width: 20%;
+  margin: 0px 0px 0px 70px;
+  width: 200px;
 `;
 
 const Title = styled.h3`
