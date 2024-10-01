@@ -119,7 +119,7 @@ function Main({ username }) {
 
 const Container = styled.div`
   grid-area: main;
-  padding: 0 0 10px;
+  width: 110%;
 `;
 
 const PostForm = styled.form`
