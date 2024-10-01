@@ -1,17 +1,16 @@
 import React from "react";
-import Header from "../components/Header"; // Your header component
-import Leftside from "../components/Leftside"; // Your left-side content
-import Main from "../components/Main"; // Main content that dynamically changes
-import Rightside from "../components/Rightside"; // Rightside only for the home route
-import Network from "../pages/Network"; // Network content
-import Jobs from "../pages/Jobs"; // Jobs content
-import Notifications from "../pages/Notifications"; // Notifications content
+import Header from "../components/Header";
+import Leftside from "../components/Leftside";
+import Main from "../components/Main";
+import Rightside from "../components/Rightside"; 
 import styled from "styled-components";
+import Network  from "../pages/Network";
+import Jobs from "../pages/Jobs";
+import Notifications from "../pages/Notifications";
 
 function Home({ username, showRightside, content }) {
   let MainContent;
 
-  // Conditionally render the main content based on the route
   switch (content) {
     case "network":
       MainContent = <Network />;
@@ -28,33 +27,40 @@ function Home({ username, showRightside, content }) {
   }
 
   return (
-    <>
-      <Header /> {/* Include the header here */}
-      <Container>
-        <Layout>
-          <Leftside /> {/* Left side stays constant */}
-          <MainContentWrapper>
-            {MainContent}
-          </MainContentWrapper>
-          {showRightside && <Rightside />} {/* Rightside is shown only on the home page */}
-        </Layout>
-      </Container>
+    <> 
+    <Header />
+    <Container>
+      <Layout>
+        <Leftside /> 
+        <MainContentWrapper>
+          {MainContent}
+        </MainContentWrapper>
+        {showRightside && <Rightside />}
+      </Layout>
+    </Container>
     </>
+
   );
 }
 
 const Container = styled.div`
-  padding-top: 52px; /* Adjust for fixed header */
+  padding-top: 52px;
 `;
 
 const Layout = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+  }
 `;
 
 const MainContentWrapper = styled.div`
   flex: 1;
   padding: 0 20px;
+  
 `;
 
 export default Home;
