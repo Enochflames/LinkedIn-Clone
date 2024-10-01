@@ -62,7 +62,7 @@ const notifications = [
 const NotificationsContainer = styled.div`
   width: 100%;
   max-width: 600px;
-  margin: 0 auto;
+  margin: 0 0 auto 90px;
   font-family: Arial, sans-serif;
   
 `;
